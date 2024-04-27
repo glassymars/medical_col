@@ -44,7 +44,6 @@ st.markdown(
 
 # Input form container
 st.markdown("<div class='input-container'><h2 style='color: #2980B9;'>Input Parameters</h2></div>", unsafe_allow_html=True)
-st.header("Medical Cost Prediction")
 
 with st.form("medical_cost_prediction_form"):
     age = st.number_input("Enter age")
