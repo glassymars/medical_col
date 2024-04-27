@@ -55,9 +55,9 @@ with st.form("medical_cost_prediction_form"):
 
     submitted = st.form_submit_button("Predict Medical Cost")
 
+# Main content area
 if submitted:
     if age != 0 and bmi != 0.0:
-        # Convert input values to appropriate format
         # Convert input values to appropriate format
         sex = 1 if sex == "Male" else 0
         smoker = 1 if smoker == "Yes" else 0
@@ -69,13 +69,14 @@ if submitted:
         input_data = [[age, sex, bmi, children, smoker] + region_encoded]
 
         # Load the trained model
-        with open("medical_model (1).dat", "rb") as f:
+        with open("medical_model.dat", "rb") as f:
             model = pickle.load(f)
 
         # Make prediction
         output = model.predict(input_data)
 
         # Display prediction
-        st.markdown("<div class='prediction'><h3>Prediction Result</h3><p>" + format_output(output[0]) + "</p></div>", unsafe_allow_html=True)
+        st.markdown("<div class='prediction'><h3>Prediction Result is</h3><p>" + format_output(output[0]) + "</p></div>", unsafe_allow_html=True)
     else:
         st.error("Please enter all input parameters.")
+        #end
