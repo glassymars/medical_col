@@ -46,12 +46,12 @@ st.markdown(
 st.markdown("<div class='input-container'><h2 style='color: #2980B9;'>Input Parameters</h2></div>", unsafe_allow_html=True)
 
 with st.form("medical_cost_prediction_form"):
-    age = st.number_input("Enter age")
-    sex = st.selectbox("Select sex", ["Male", "Female"])
-    bmi = st.number_input("Enter BMI")
-    children = st.number_input("Enter number of children")
-    smoker = st.selectbox("Smoker?", ["Yes", "No"])
-    region = st.selectbox("Select region", ["Southwest", "Southeast", "Northwest", "Northeast"])
+    age = st.number_input("Age", min_value=0, step=1)
+    sex = st.selectbox("Sex", ["Male", "Female"])
+    bmi = st.number_input("BMI", min_value=0.0, step=0.1)
+    children = st.number_input("Number of Children", min_value=0, step=1)
+    smoker = st.selectbox("Smoker", ["Yes", "No"])
+    region = st.selectbox("Region", ["Southwest", "Southeast", "Northwest", "Northeast"])
 
     submitted = st.form_submit_button("Predict Medical Cost")
 
