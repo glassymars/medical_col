@@ -1,16 +1,18 @@
 import streamlit as st
 import pickle
 
-# Define the layout using Streamlit columns
-col1, col2 = st.columns([1, 5])  # Adjust column widths as needed
+background_css = """
+<style>
+body {
+    background-color: #AEC6CF;
+}
+</style>
+"""
 
-# Place the logo image in the first column
-with col1:
-    st.image("your_logo.png", width=200, height=100)
+# Display the background color using HTML
+st.markdown(background_css, unsafe_allow_html=True)
 
-# Place the header in the second column
-with col2:
-    st.header("Medical Cost Prediction")
+st.header("Medical Cost Prediction")
 
 with st.form("medical_cost_prediction_form"):
     age = st.number_input("Enter age")
